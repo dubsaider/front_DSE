@@ -2,15 +2,19 @@
   <div class="left-menu">
     <hide-button/>
     <camera-list/>
+    <camera-control/>
   </div>
 </template>
 
 <script>
 import HideButton from "@/components/HideButton.vue";
 import CameraList from "@/components/CameraList.vue";
+import CameraControl from "./CameraControl.vue";
 export default {
   components: {
-    HideButton, CameraList
+    HideButton, 
+    CameraList,
+    CameraControl
   }
 }
 </script>

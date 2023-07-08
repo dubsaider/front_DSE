@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <div class="main-wrapper">
+    <navigation-bar @selected-nav-item="(res) => selectedNavItem = res"/>
+    <div v-if="selectedNavItem === 'cameras'">
+      <div class="main-wrapper">
 
-      <left-menu/>
+        <left-menu/>
 
-      <div class="main-content">
-        <camera-list-manage/>
-        <camera-grid/>
-      </div>
+        <div class="main-content">
+          <camera-list-manage/>
+          <camera-grid/>
+        </div>
 
+        </div>
+        <!--<camera-pop-up-menu/> -->
     </div>
-    <!--<camera-pop-up-menu/> -->
+    
   </div>
 </template>
 
@@ -19,14 +23,21 @@ import CameraListManage from "@/components/CameraListManage.vue"
 import LeftMenu from "@/components/LeftMenu.vue";
 import CameraGrid from "@/components/CameraGrid.vue"
 import CameraPopUpMenu from "@/components/CameraPopUpMenu.vue";
+import NavigationBar from "./components/NavigationBar.vue";
 
 
 export default {
+  data() {
+    return {
+      selectedNavItem: 'cameras' // Изначально выбран элемент "Камеры"
+    };
+  },
   components: {
     CameraListManage,
     LeftMenu,
     CameraGrid,
-    CameraPopUpMenu
+    CameraPopUpMenu,
+    NavigationBar
   }
 }
 </script>
