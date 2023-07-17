@@ -16,11 +16,11 @@
       </div>
     </div>
     <div class="list">
-      1. Пунктик
-      2. Пунктик
-      3. Пунктик
-      4. Пунктик
-      5. Пунктик
+      <div>1. Пунктик</div>
+      <div>2. Пунктик</div>
+      <div>3. Пунктик</div>
+      <div>4. Пунктик</div>
+      <div>5. Пунктик</div>
     </div>
   </div>
 
@@ -50,6 +50,8 @@ export default {
 .main-panel {
   /*width: 198px;
   height: 367px; */
+  margin-top: 7%;
+  min-width: 91.666%;
   width: 15%;
   height: 50%;
   background-color: #FAFAFA;

@@ -20,6 +20,7 @@ export default {}
 
   padding: 2% 5% 3% 5%;
   /*margin: 4% 6% 4% 6%;*/
+  margin: 4% 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
