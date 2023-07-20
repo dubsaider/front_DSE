@@ -74,7 +74,7 @@ export default {}
 }
 
 .camera-num-choice {
-  width: 29.426%;
+  /* width: 29.426%; */
   height: 100%;
   display: flex;
   align-content: space-between;

@@ -1,19 +1,13 @@
 <template>
   <div class="main-panel"> <!--Главный прямоугольничек-->
     <div class="button-panel"> <!--Прямоугольник с кнопками-->
-      <div class="column">
-        <div class="butt" @click="zoomCamera('in')"><img src="@/assets/+.png"></div>
-        <div class="butt" @click="moveCamera('left')"><img src="@/assets/left.png"></div>
-      </div>
-      <div class="column">
-        <div class="butt" @click="moveCamera('up')"><img src="@/assets/up3.png"></div>
-        <div class="butt" @click="resetCamera()"><img src="@/assets/x.png"></div>
-        <div class="butt" @click="moveCamera('down')"><img src="@/assets/down.png"></div>
-      </div>
-      <div class="column">
-        <div class="butt" @click="zoomCamera('out')"><img src="@/assets/-.png"></div>
-        <div class="butt" @click="moveCamera('right')"><img src="@/assets/right.png"></div>
-      </div>
+      <div class="butt div1" @click="zoomCamera('in')"><img src="@/assets/+.png"></div>
+      <div class="butt div4" @click="moveCamera('left')"><img src="@/assets/left.png"></div>
+      <div class="butt div2" @click="moveCamera('up')"><img src="@/assets/up3.png"></div>
+      <div class="butt div5" @click="resetCamera()"><img src="@/assets/x.png"></div>
+      <div class="butt div7" @click="moveCamera('down')"><img src="@/assets/down.png"></div>
+      <div class="butt div3" @click="zoomCamera('out')"><img src="@/assets/-.png"></div>
+      <div class="butt div6" @click="moveCamera('right')"><img src="@/assets/right.png"></div>
     </div>
     <div class="list">
       <div>1. Пунктик</div>
@@ -60,32 +54,36 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-content: space-around;
+  align-items: center;
 }
 
 .button-panel {
   /*border: 1px solid black; */
-  background-color: white;
-  width: 125px;
-  height: 125px;
-  display: flex;
-  align-self: center;
-  margin: 5%;
+  width: 60%;
+  height: 8vmax;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0.7vmax;
+  grid-row-gap: 0.7vmax;
+  margin-top: 10%;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-}
+.div1 { grid-area: 1 / 1 / 2 / 2; }
+.div2 { grid-area: 1 / 2 / 2 / 3; }
+.div3 { grid-area: 1 / 3 / 2 / 4; }
+.div4 { grid-area: 2 / 1 / 3 / 2; }
+.div5 { grid-area: 2 / 2 / 3 / 3; }
+.div6 { grid-area: 2 / 3 / 3 / 4; }
+.div7 { grid-area: 3 / 2 / 4 / 3; }
 
 .butt {
-  width: 30px;
-  height: 30px;
+  width: 100%;
+  height: 100%;
   border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px;
   background: #262626;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 6px;
@@ -94,8 +92,8 @@ export default {
 }
 
 img {
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
 }
 
 .list {
@@ -103,8 +101,9 @@ img {
   font-family: 'Jura';
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 1.5vw;
+  line-height: 4vh;
+
   font-variant: small-caps;
   width: 60%;
   height: 50%;
