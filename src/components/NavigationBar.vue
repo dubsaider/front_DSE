@@ -70,6 +70,7 @@
       cursor: pointer;
       background: #8A8A8A;
       border-radius: 0 0 12px 12px;
+      font-size: 1.5vw;
     }
 
   .windows.active {
