@@ -30,8 +30,8 @@ export default {
 
 <style>
 .camera-list {
-  min-width: 91.666%;
-  min-height: 53.092%;
+  width: 91.666%;
+  height: 53.092%;
   padding: 2% 0% 0% 0%;
   display: flex;
   flex-direction: column;
@@ -42,8 +42,8 @@ export default {
 }
 
 .list-content {
-  min-height: 89.98%;
-  min-width: 100%;
+  height: 89.98%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

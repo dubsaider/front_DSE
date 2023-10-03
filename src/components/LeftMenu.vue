@@ -24,9 +24,10 @@ export default {
 .left-menu {
   display: flex;
   flex-direction: column;
+  align-self: start;
   align-items: center;
   padding: 1% 0% 1% 0%;
-  max-width: 15%;
+  width: 15%;
   min-height: 91.309%;
   background-color: #D9D9D9;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

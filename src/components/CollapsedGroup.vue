@@ -1,7 +1,7 @@
 <template>
   <div class="group-title-wrapper">
   <div class="group-title">
-    Пунктик
+    Зона наблюдения
     <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15 1L8 8L1 1" stroke="#8B8B8B" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -31,7 +31,7 @@ export default {}
 
 .group-title-wrapper {
   width: 87.374%;
-  max-height: 6.554%;
+  height: 6.554%;
 }
 
 </style>

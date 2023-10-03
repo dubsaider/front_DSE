@@ -10,11 +10,11 @@
       <div class="butt div6" @click="moveCamera('right')"><img src="@/assets/right.png"></div>
     </div>
     <div class="list">
-      <div>1. Пунктик</div>
-      <div>2. Пунктик</div>
-      <div>3. Пунктик</div>
-      <div>4. Пунктик</div>
-      <div>5. Пунктик</div>
+      <div>Сценарий 1</div>
+      <div>Сценарий 2</div>
+      <div>Сценарий 3</div>
+      <div>Сценарий 4</div>
+      <div>Сценарий 5</div>
     </div>
   </div>
 

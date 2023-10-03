@@ -8,11 +8,11 @@
       <div>Сетка камер</div>
       <div class="camera-num-choice">
         <div>2</div>
-        <div>@</div>
+        <div class="separator"></div>
         <div>4</div>
-        <div>@</div>
+        <div class="separator"></div>
         <div>8</div>
-        <div>@</div>
+        <div class="separator"></div>
         <div>16</div>
       </div>
     </div>
@@ -37,8 +37,8 @@ export default {}
 }
 
 .add-buttons{
-  min-width: 43.127%;
-  min-height: 60%;
+  width: 43.127%;
+  height: 60%;
   /*font-size: 80%;*/
   padding: 1%;
   display: flex;
@@ -48,6 +48,7 @@ export default {}
 
 .manage-element{
   font-family: 'Jura', sans-serif;
+  min-width: 40%;
   padding: 1% 3% 1% 3%;
   
   /*padding: %;*/
@@ -58,10 +59,10 @@ export default {}
 }
 
 .camera-grid-options {
-  padding: 0.5% 1% 0.5% 1%;
-  margin: 0% 1% 0% 0%;
+  padding: 0.5% 1.5% 0.5% 1.5%;
+  margin-right: 1%;
   width: 35.9%;
-  height: 60%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,11 +74,21 @@ export default {}
   padding: 0% 0% 0% 0%;
 }
 
+
 .camera-num-choice {
   /* width: 29.426%; */
-  height: 100%;
+  margin: 0% 6%;
+  /* height: 60%; */
   display: flex;
   align-content: space-between;
   align-items: center;
+}
+
+.separator {
+  height: 1px;
+  width: 1px;
+  margin: 0% 10%;
+  border: 1px solid #8B8B8B;
+  border-radius: 100%;
 }
 </style>
