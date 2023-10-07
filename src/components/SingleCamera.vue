@@ -5,20 +5,52 @@
 <script>
 import Hls from 'hls.js';
 import axios from 'axios';
-import videojs from 'video.js';
-import 'video.js/dist/video-js.css';
-
-import VideoPlayer from '@/components/VideoPlayer.vue';
 
 export default {
     components: {
-        VideoPlayer
+
     },
-    props: ['camera_id', 'camera_src'],
+    props: [
+        'camera_id', 
+        'camera_src',
+    ],
+    beforeMount() {},
     mounted() {
         this.fetchAndPlay(this.camera_id, this.camera_src);
     },
+    data() {
+        return {
+            videoOptions: {
+                autoplay: true,
+                //controls: true,
+                loop: true,
+                muted: true,
+                sources: [
+                    {
+                        src: this.camera_src,
+                        type: "application/x-mpegURL"
+                    }
+                ],
+                preload: "meta",
+                techOrder: ['html5'],
+                html5: {
+                    hls: {
+                        //enableLowInitialPlaylist: true,
+                        //smoothQualityChange: true,
+                        overrideNative: true
+                    }
+                }
+            }
+        };
+    },
     methods: {
+        getStream(cameraId, streamId){
+            axios.get(streamId)
+            .then((response) => {
+                console.log("Camera # " + cameraId + " response:");
+                console.log(response.data);
+            });
+        },
         fetchAndPlay(cameraId, streamId) {
             let video = document.getElementById(cameraId);
 
@@ -40,14 +72,13 @@ export default {
 
                 hls.loadSource(streamId);
                 hls.attachMedia(video);
-                let playPromise = video.play;
-
-                if (playPromise !== undefined) {
-                   playPromise.then(_ => {}).catch(error => {});
-               }
             }
             else if (video.canPlayType('application/x-mpegURL')){
-                //TODO: Show error
+                console.log('ddd');
+                video.src = streamId;
+                video.addEventListener('loadedmetadata', function() {
+                    video.play();
+                });
             }
         }
     }
@@ -56,10 +87,7 @@ export default {
 
 <style>
 .camera {
-    /* min-width: 40%; */
-    /* max-width: 50%; */
     max-width: 40%; 
     max-height: 30%;
-    /* max-height: 30%;  */
 }
 </style>
