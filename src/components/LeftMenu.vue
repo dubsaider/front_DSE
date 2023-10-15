@@ -8,7 +8,7 @@
 
 <script>
 import HideButton from "@/components/HideButton.vue";
-import CameraList from "@/components/CameraList.vue";
+import CameraList from "@/components/LeftMenu/CamerasList.vue";
 import CameraControl from "./CameraControl.vue";
 export default {
   components: {

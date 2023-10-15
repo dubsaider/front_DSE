@@ -74,7 +74,6 @@ export default {
                 hls.attachMedia(video);
             }
             else if (video.canPlayType('application/x-mpegURL')){
-                console.log('ddd');
                 video.src = streamId;
                 video.addEventListener('loadedmetadata', function() {
                     video.play();

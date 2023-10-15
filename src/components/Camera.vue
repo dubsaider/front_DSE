@@ -5,9 +5,9 @@
   </template>
   
   <script>
-  import videojs from 'video.js';
-  import 'video.js/dist/video-js.css';
-  import axios from 'axios';
+  import videojs from "video.js";
+  import "video.js/dist/video-js.css";
+  import axios from "axios";
   
   export default {
     data() {
@@ -21,7 +21,7 @@
     methods: {
       fetchHlsUrl() {
         const streamId = 1; // Замените на реальный ID потока
-        const apiUrl = `http://10.61.162.13:8000/api/video/test_480p.m3u8`;
+        const apiUrl = "http://10.61.162.13:8000/api/video/test_480p.m3u8";
   
         axios.get(apiUrl)
           .then(response => {
@@ -29,13 +29,13 @@
             this.initializePlayer();
           })
           .catch(error => {
-            console.error('Failed to fetch HLS URL:', error);
+            console.error("Failed to fetch HLS URL:", error);
           });
       },
       initializePlayer() {
         // Создание плеера Video.js с использованием HLS-плагина
         this.player = videojs(this.$refs.videoPlayer, {
-          techOrder: ['html5'],
+          techOrder: ["html5"],
           html5: {
             hls: {
               overrideNative: true,

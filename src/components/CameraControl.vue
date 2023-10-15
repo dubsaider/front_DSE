@@ -25,15 +25,15 @@ export default {
   methods: {
     moveCamera(direction) {
       // Здесь будет код для перемещения камеры в указанном направлении
-      console.log('Перемещение камеры:', direction);
+      console.log("Перемещение камеры:", direction);
     },
     resetCamera() {
       // Здесь будет код для возврата камеры в исходное положение
-      console.log('Возврат камеры в исходное положение');
+      console.log("Возврат камеры в исходное положение");
     },
     zoomCamera(action) {
       // Здесь будет код для изменения зума камеры
-      console.log('Изменение зума:', action);
+      console.log("Изменение зума:", action);
     }
   }
 };

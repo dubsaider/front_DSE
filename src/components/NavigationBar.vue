@@ -71,9 +71,11 @@
       background: #8A8A8A;
       border-radius: 0 0 12px 12px;
       font-size: 1.5vw;
+      z-index: 0;
     }
 
   .windows.active {
       background-color: #D9D9D9;
+      z-index: 1;
     }
   </style>

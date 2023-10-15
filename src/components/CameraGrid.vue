@@ -11,9 +11,9 @@
       </video> -->
     <single-camera
         v-for="camera in cameras"
-          v-bind:id="camera.camera_id"
-          v-bind:camera_id="camera.camera_id"
-          v-bind:camera_src="camera.camera_src"
+          v-bind:id="camera.cameraId"
+          v-bind:cameraId="camera.cameraId"
+          v-bind:cameraSrc="camera.cameraSrc"
       ></single-camera>
   </div>
 </template>
@@ -21,28 +21,35 @@
 <script>
 import Camera from "@/components/Camera.vue";
 import SingleCamera from "./SingleCamera.vue";
-import videojs from 'video.js';
-import 'video.js/dist/video-js.css';
+import videojs from "video.js";
+import "video.js/dist/video-js.css";
 
-const records_src = '/public/Processed/';
+const RECORDS_SRC = "/public/Processed/";
 
 export default {
-  name: 'CameraGridContent',
+  name: "CameraGridContent",
   components: {
     Camera, SingleCamera
   },
   data() { //todo: must download when app mounted
     return {
       cameras: [
-        // old { camera_id: 'video2', camera_src: `http://10.63.17.70:8000/api/video/test_480p.m3u8` },
-        // { camera_id: 'test', camera_src: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8'},
-        // { camera_id: 'video2', camera_src: `http://10.61.36.15:8000/api/camera/2/stream.m3u8` },
-        { camera_id: 'video1', camera_src: `http://10.61.36.15:8000/api/camera/1/stream.m3u8` },
-        // { camera_id: 'video3', camera_src: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
-        // old { camera_id: 'video5', camera_src: `http://10.63.17.70:8000/api/camera/4/stream.m3u8` },
-        // { camera_id: 'video4', camera_src: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
-        { camera_id: 'video35', camera_src: `http://10.61.36.15:8000/api/camera/35/stream.m3u8` },
-        { camera_id: 'video32', camera_src: `http://10.61.36.15:8000/api/camera/32/stream.m3u8` },
+        // old { cameraId: 'video2', cameraSrc: `http://10.63.17.70:8000/api/video/test_480p.m3u8` },
+        // { cameraId: 'test', cameraSrc: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8'},
+        { cameraId: 'video2', cameraSrc: `http://10.61.36.15:8000/api/camera/2/stream.m3u8` },
+        { cameraId: 'video3', cameraSrc: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
+        { cameraId: 'video4', cameraSrc: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
+        { cameraId: 'video5', cameraSrc: `http://10.61.36.15:8000/api/camera/5/stream.m3u8` },
+        // { cameraId: 'video36', cameraSrc: `http://10.61.36.15:8000/api/camera/36/stream.m3u8` },
+        // { cameraId: 'video37', cameraSrc: `http://10.61.36.15:8000/api/camera/37/stream.m3u8` },
+        // { cameraId: 'video38', cameraSrc: `http://10.61.36.15:8000/api/camera/38/stream.m3u8` },
+        // { cameraId: 'video39', cameraSrc: `http://10.61.36.15:8000/api/camera/39/stream.m3u8` },
+        //{ cameraId: 'video40', cameraSrc: `http://10.61.36.15:8000/api/camera/40/stream.m3u8` },
+        // { cameraId: 'video3', cameraSrc: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
+        // old { cameraId: 'video5', cameraSrc: `http://10.63.17.70:8000/api/camera/4/stream.m3u8` },
+        // // { cameraId: 'video4', cameraSrc: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
+        //  { cameraId: 'video35', cameraSrc: `http://10.61.36.15:8000/api/camera/35/stream.m3u8` },
+        //  { cameraId: 'video32', cameraSrc: `http://10.61.36.15:8000/api/camera/32/stream.m3u8` },
         
       ]
     }

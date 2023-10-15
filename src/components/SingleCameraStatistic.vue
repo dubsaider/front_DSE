@@ -67,7 +67,6 @@ export default {
     text-align: center;
 }
 .zone-cards-wrapper{
-
     /* justify-content: space-around; */
 }
 </style>

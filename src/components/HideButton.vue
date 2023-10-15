@@ -28,7 +28,7 @@ export default {}
 
 .hide-button {
   width: 50%;
-  font-size: 75%;
+  /* font-size: 75%; */
   justify-self: flex-end;
   align-content: center;
   display: flex;
