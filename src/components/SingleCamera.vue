@@ -3,20 +3,20 @@
 </template>
 
 <script>
-import Hls from 'hls.js';
-import axios from 'axios';
+import Hls from "hls.js";
+import axios from "axios";
 
 export default {
     components: {
 
     },
     props: [
-        'camera_id', 
-        'camera_src',
+        "cameraId", 
+        "cameraSrc",
     ],
     beforeMount() {},
     mounted() {
-        this.fetchAndPlay(this.camera_id, this.camera_src);
+        this.fetchAndPlay(this.cameraId, this.cameraSrc);
     },
     data() {
         return {
@@ -27,12 +27,12 @@ export default {
                 muted: true,
                 sources: [
                     {
-                        src: this.camera_src,
+                        src: this.cameraSrc,
                         type: "application/x-mpegURL"
                     }
                 ],
                 preload: "meta",
-                techOrder: ['html5'],
+                techOrder: ["html5"],
                 html5: {
                     hls: {
                         //enableLowInitialPlaylist: true,
@@ -61,21 +61,21 @@ export default {
                 });//{debug: true});
 
                 hls.on(Hls.Events.MEDIA_ATTACHED, function () {
-                    console.log('video and hls.js are now bound together');
+                    console.log("video and hls.js are now bound together");
                 });
 
                 hls.on(Hls.Events.MANIFEST_PARSED, function (event, data) {
                     hls.startLoad(0);
-                    console.log('Manifest loaded, fount ' + data.levels.length + ' quality level');
+                    console.log("Manifest loaded, fount " + data.levels.length + " quality level");
                     
                 });
 
                 hls.loadSource(streamId);
                 hls.attachMedia(video);
             }
-            else if (video.canPlayType('application/x-mpegURL')){
+            else if (video.canPlayType("application/x-mpegURL")){
                 video.src = streamId;
-                video.addEventListener('loadedmetadata', function() {
+                video.addEventListener("loadedmetadata", function() {
                     video.play();
                 });
             }

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Camera from "@/components/Camera.vue";
+import Camera from "./Camera.vue";
 import SingleCamera from "./SingleCamera.vue";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";

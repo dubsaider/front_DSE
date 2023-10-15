@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
-import axios from 'axios';
-import moment from 'moment';
-import 'chartjs-adapter-moment';
+import Chart from "chart.js/auto";
+import axios from "axios";
+import moment from "moment";
+import "chartjs-adapter-moment";
 
 export default {
-    name: 'SingleCameraGraphic',
-    props: ['camera_id', 'camera_src', 'location_name'],
+    name: "SingleCameraGraphic",
+    props: ["cameraId", "cameraSrc", "locationName"],
     data() {
         return {
             timestamps: [],
@@ -23,14 +23,14 @@ export default {
     },
     methods: {
         draw(timestamps, counts) {
-            new Chart(document.getElementById(this.camera_id), {
-                type: 'line',
+            new Chart(document.getElementById(this.cameraId), {
+                type: "line",
                 data: {
                     labels: timestamps,
                     datasets: [
                         {
                             data: counts,
-                            label: 'Количество обнаруженных объектов, локация: ' + this.location_name,
+                            label: "Количество обнаруженных объектов, локация: " + this.locationName,
                             borderColor: "#3cba9f",
                             fill: true
                         }]
@@ -40,8 +40,8 @@ export default {
                     relative: true,
                     scales: {
                         x: {
-                            type: 'time',
-                            distribution: 'linear'
+                            type: "time",
+                            distribution: "linear"
                         }, 
                         y: {
                             ticks: { precision: 0 }
@@ -51,9 +51,9 @@ export default {
             });
         },
         parseLogsAndDraw() {
-            axios.get(this.camera_src, { paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }) })
+            axios.get(this.cameraSrc, { paramsSerializer: params => qs.stringify(params, { arrayFormat: "repeat" }) })
                 .then((response) => {
-                    this.timestamps = response.data.map(x => moment(x.datestamp).utc().format('lll'));
+                    this.timestamps = response.data.map(x => moment(x.datestamp).utc().format("lll"));
                     this.counts = response.data.map(x => x.count)
 
                     this.draw(this.timestamps, this.counts);

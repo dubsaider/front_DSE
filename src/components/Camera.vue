@@ -48,7 +48,7 @@
           sources: [
             {
               src: this.hlsUrl,
-              type: 'application/x-mpegURL',
+              type: "application/x-mpegURL",
             },
           ],
         });

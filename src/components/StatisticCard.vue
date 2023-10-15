@@ -1,15 +1,15 @@
 <template>
     <div class="card-wrapper">
-        <div class="count">{{ this.objects_count }} </div>
-        <div class="type">{{ this.objects_type }} </div>
+        <div class="count">{{ this.objectsCount }} </div>
+        <div class="type">{{ this.objectsType }} </div>
     </div>
 </template>
 
 <script>
 
 export default {
-    name: 'StatisticCard',
-    props: ['objects_type', 'objects_count']
+    name: "StatisticCard",
+    props: ["objectsType", "objectsCount"]
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
       <nav>
-        <div class="top_rectangle"></div>
-        <div class="small_line"></div>
+        <div class="top-rectangle"></div>
+        <div class="small-line"></div>
         <ul>
           <li><div class="windows" @click="selectNavItem('cameras')" :class="{ active: selectedNavItem === 'cameras' }">КАМЕРЫ</div></li>
           <li><div class="windows" @click="selectNavItem('statistics')" :class="{ active: selectedNavItem === 'statistics' }">СТАТИСТИКА</div></li>
@@ -14,14 +14,14 @@
   export default {
     data() {
       return {
-        selectedNavItem: 'cameras' // Изначально выбран элемент "Камеры"
+        selectedNavItem: "cameras" // Изначально выбран элемент "Камеры"
       };
     },
-    emits: ['selectedNavItem'],
+    emits: ["selectedNavItem"],
     methods: {
       selectNavItem(navItem) {
         this.selectedNavItem = navItem;
-        this.$emit('selectedNavItem', navItem)
+        this.$emit("selectedNavItem", navItem)
       }
     },
   };
@@ -43,13 +43,13 @@
     display: flex;
   }
 
-  .top_rectangle {
+  .top-rectangle {
     background-color: #D9D9D9;
     width: 100%;
     height: 20px;
   }
 
-  .small_line {
+  .small-line {
     width: 100%;
     height: 3px;
     background-color: #8A8A8A;

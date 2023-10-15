@@ -6,8 +6,8 @@
 
 <script>
 // export default {
-//     name: 'SingleRecord',
-//     props: ['camera_id', 'camera_src'],
+//     name: "SingleRecord",
+//     props: ["cameraId", "cameraSrc"],
 //     created(){
 
 //     }
