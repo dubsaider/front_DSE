@@ -19,7 +19,7 @@ import SingleCameraGraphic from "./SingleCameraGraphic.vue";
 
 export default {
     name: "SingleCameraStatistic",
-    props: ["cameraId", "cameraName", "cameraSrc", "locationName"],
+    props: ["camera_id", "camera_name", "camera_src", "location_name"],
     components: {
         StatisticCard, SingleCameraGraphic
     },
@@ -33,7 +33,7 @@ export default {
     },
     methods: {
         parseLogs() {
-            axios.get(this.cameraSrc, { paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }) })
+            axios.get(this.camera_src, { paramsSerializer: params => qs.stringify(params, { arrayFormat: 'repeat' }) })
                 .then((response) => {
                     response.data.map(x => {
                         this.typedCounts.set(x.type, x.count);

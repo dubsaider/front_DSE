@@ -7,12 +7,24 @@
 </template>
 
 <script>
+import { computed } from "vue";
+import SingleCamera from "../SingleCamera.vue";
+
 export default {
+    components: {
+        SingleCamera
+    },
     props: ["cameraInfo"],
     data() {
         return {
             isSelected: false,// change color-schema if true and show camera on CameraGrid
             //cameraSource
+            message: "mes"
+        }
+    },
+    provide(){
+        return {
+            message: computed(() => this.message)
         }
     },
     mounted() {
@@ -21,6 +33,7 @@ export default {
     methods: {
         changeSelection(){
             this.isSelected = !this.isSelected;
+            this.$emit('changeCameraVisibility');
         }
     }
 }
