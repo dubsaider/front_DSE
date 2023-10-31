@@ -1,6 +1,5 @@
 <template>
-    <video @change-camera-visibility="changeCameraVisibility" class="camera" contorls autoplay muted loop></video>
-    <div> {{ message }}</div>
+    <video class="camera" contorls autoplay muted loop></video>
 </template>
 
 <script>
@@ -10,15 +9,15 @@ import CameraListItem from "./LeftMenu/CameraListItem.vue";
 
 export default {
     props: [
-        "cameraId", 
-        "cameraSrc",
+        "camera_id", 
+        "camera_src",
     ],
-    inject: [
-        "message"
-    ],
+    // inject: [
+    //     "message"
+    // ],
     beforeMount() {},
     mounted() {
-        this.fetchAndPlay(this.cameraId, this.cameraSrc);
+        this.fetchAndPlay(this.camera_id, this.camera_src);
     },
     data() {
         return {
@@ -29,7 +28,7 @@ export default {
                 muted: true,
                 sources: [
                     {
-                        src: this.cameraSrc,
+                        src: this.camera_src,
                         type: "application/x-mpegURL"
                     }
                 ],
@@ -47,7 +46,7 @@ export default {
     },
     methods: {
         changeCameraVisibility(){
-            alert("opa");
+            
         },
         getStream(cameraId, streamId){
             axios.get(streamId)
@@ -94,6 +93,6 @@ export default {
 .camera {
     max-width: 40%; 
     max-height: 30%;
-    display: none;
+    /* display: none; */
 }
 </style>

@@ -11,9 +11,9 @@
       </video> -->
     <single-camera
         v-for="camera in cameras"
-          v-bind:id="camera.camera_id"
-          v-bind:cameraId="camera.camera_id"
-          v-bind:cameraSrc="camera.video_src"
+          v-bind:id="camera.id"
+          v-bind:camera_id="camera.id"
+          v-bind:camera_src="camera.video_src"
       ></single-camera>
   </div>
 </template>
@@ -43,28 +43,28 @@ export default {
   //input_location: 8​​
   //output_location: 8
       cameras: [
-        // // old { cameraId: 'video2', cameraSrc: `http://10.63.17.70:8000/api/video/test_480p.m3u8` },
-        // // { cameraId: 'test', cameraSrc: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8'},
-        // { cameraId: 'video2', cameraSrc: `http://10.61.36.15:8000/api/camera/2/stream.m3u8` },
+        // old { cameraId: 'video2', cameraSrc: `http://10.63.17.70:8000/api/video/test_480p.m3u8` },
+        // { cameraId: 'test', cameraSrc: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8'},
+        { id: 'video2', video_src: `http://10.61.36.15:8000/api/camera/2/stream.m3u8` },
+        { id: 'video3', video_src: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
+        { id: 'video4', video_src: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
+        { id: 'video5', video_src: `http://10.61.36.15:8000/api/camera/5/stream.m3u8` },
+        // { cameraId: 'video36', cameraSrc: `http://10.61.36.15:8000/api/camera/36/stream.m3u8` },
+        // { cameraId: 'video37', cameraSrc: `http://10.61.36.15:8000/api/camera/37/stream.m3u8` },
+        // { cameraId: 'video38', cameraSrc: `http://10.61.36.15:8000/api/camera/38/stream.m3u8` },
+        // { cameraId: 'video39', cameraSrc: `http://10.61.36.15:8000/api/camera/39/stream.m3u8` },
+        //{ cameraId: 'video40', cameraSrc: `http://10.61.36.15:8000/api/camera/40/stream.m3u8` },
         // { cameraId: 'video3', cameraSrc: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
-        // { cameraId: 'video4', cameraSrc: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
-        // { cameraId: 'video5', cameraSrc: `http://10.61.36.15:8000/api/camera/5/stream.m3u8` },
-        // // { cameraId: 'video36', cameraSrc: `http://10.61.36.15:8000/api/camera/36/stream.m3u8` },
-        // // { cameraId: 'video37', cameraSrc: `http://10.61.36.15:8000/api/camera/37/stream.m3u8` },
-        // // { cameraId: 'video38', cameraSrc: `http://10.61.36.15:8000/api/camera/38/stream.m3u8` },
-        // // { cameraId: 'video39', cameraSrc: `http://10.61.36.15:8000/api/camera/39/stream.m3u8` },
-        // //{ cameraId: 'video40', cameraSrc: `http://10.61.36.15:8000/api/camera/40/stream.m3u8` },
-        // // { cameraId: 'video3', cameraSrc: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
-        // // old { cameraId: 'video5', cameraSrc: `http://10.63.17.70:8000/api/camera/4/stream.m3u8` },
-        // // // { cameraId: 'video4', cameraSrc: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
-        // //  { cameraId: 'video35', cameraSrc: `http://10.61.36.15:8000/api/camera/35/stream.m3u8` },
-        // //  { cameraId: 'video32', cameraSrc: `http://10.61.36.15:8000/api/camera/32/stream.m3u8` },
+        // old { cameraId: 'video5', cameraSrc: `http://10.63.17.70:8000/api/camera/4/stream.m3u8` },
+        // // { cameraId: 'video4', cameraSrc: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
+        //  { cameraId: 'video35', cameraSrc: `http://10.61.36.15:8000/api/camera/35/stream.m3u8` },
+        //  { cameraId: 'video32', cameraSrc: `http://10.61.36.15:8000/api/camera/32/stream.m3u8` },
         
       ]
     }
   },
   mounted() {
-    this.getCameras();
+    //this.getCameras();
   },
   methods: {
     getCameras() {

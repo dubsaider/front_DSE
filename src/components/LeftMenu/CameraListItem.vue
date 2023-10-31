@@ -33,7 +33,7 @@ export default {
     methods: {
         changeSelection(){
             this.isSelected = !this.isSelected;
-            this.$emit('changeCameraVisibility');
+            // this.$emit('changeCameraVisibility');
         }
     }
 }
