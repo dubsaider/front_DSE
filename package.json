@@ -12,13 +12,14 @@
   },
   "dependencies": {
     "@videojs/http-streaming": "^3.0.2",
-    "axios": "^1.4.0",
+    "axios": "^1.5.1",
     "chart.js": "^4.3.2",
     "chartjs-adapter-moment": "^1.0.1",
     "hls.js": "^1.4.10",
     "moment": "^2.29.4",
     "pinia": "^2.0.36",
     "video.js": "^8.3.0",
+    "volar-service-vetur": "^0.0.14",
     "vue": "^3.3.2",
     "vue-router": "^4.2.0"
   },

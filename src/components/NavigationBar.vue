@@ -5,9 +5,9 @@
         <ul>
           <li><div class="windows" @click="selectNavItem('cameras')" :class="{ active: selectedNavItem === 'cameras' }">КАМЕРЫ</div></li>
           <li><div class="windows" @click="selectNavItem('statistics')" :class="{ active: selectedNavItem === 'statistics' }">СТАТИСТИКА</div></li>
+          <li><div class="windows" @click="selectNavItem('processing')" :class="{ active: selectedNavItem === 'processing' }">ОБРАБОТКИ</div></li>
         </ul>
       </nav>
-        
   </template>
 
   <script>

@@ -16,10 +16,21 @@
     </div>
     <div v-if="selectedNavItem === 'statistics'">
       <div class="main-wrapper">
+                <left-menu />
         <div class="stats-width main-content" >
           <statistic-grid />
         </div>
 
+      </div>
+    </div>
+
+    <div v-if="selectedNavItem === 'processing'">
+      <div class="main-wrapper">
+        <left-menu />
+        <div class="main-content">
+          <processing-manage />
+          <processing-grid />
+        </div>
       </div>
     </div>
 
@@ -31,8 +42,10 @@ import CameraListManage from "@/components/CameraListManage.vue"
 import LeftMenu from "@/components/LeftMenu.vue";
 import CameraGrid from "@/components/CameraGrid.vue"
 import StatisticGrid from "@/components/StatisticGrid.vue"
-import CameraPopUpMenu from "@/components/CameraPopUpMenu.vue";
 import NavigationBar from "./components/NavigationBar.vue";
+import LeftMenuProcessing from './components/LeftMenuProcessing.vue';
+import ProcessingGrid from './components/ProcessingGrid.vue';
+import ProcessingManage from "./components/ProcessingManage.vue";
 
 
 export default {
@@ -46,9 +59,11 @@ export default {
     LeftMenu,
     CameraGrid,
     StatisticGrid,
-    CameraPopUpMenu,
-    NavigationBar
-  }
+    NavigationBar,
+    LeftMenuProcessing,
+    ProcessingGrid,
+    ProcessingManage
+}
 }
 </script>
 

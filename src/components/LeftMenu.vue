@@ -1,23 +1,80 @@
 <template>
   <div class="left-menu">
-    <hide-button/>
-    <camera-list/>
-    <camera-control/>
+    <navigation-bar @selected-nav-item="(res) => selectedNavItem = res" />
+    <div v-if="selectedNavItem === 'cameras'">
+      <hide-button/>
+      <camera-list/>
+      <camera-control/>
+    </div>
+
+    <div v-if="selectedNavItem === 'statistics'">
+      <left-menu-processing/>
+    </div>
+
+    <div v-if="selectedNavItem === 'processing'">
+      <left-menu-processing/>
+    </div>
+
+
   </div>
 </template>
+
+
 
 <script>
 import HideButton from "@/components/HideButton.vue";
 import CameraList from "@/components/CameraList.vue";
 import CameraControl from "./CameraControl.vue";
+import LeftMenuProcessing from "./LeftMenuProcessing.vue";
+
 export default {
+  data() {
+    return {
+      selectedNavItem: 'cameras' // Изначально выбран элемент "Камеры"
+    };
+  },
   components: {
-    HideButton, 
+    HideButton,
     CameraList,
-    CameraControl
-  }
+    CameraControl,
+    LeftMenuProcessing,
+}
 }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style scoped>
 
