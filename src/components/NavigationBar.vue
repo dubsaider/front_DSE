@@ -5,6 +5,7 @@
         <ul>
           <li><div class="windows" @click="selectNavItem('cameras')" :class="{ active: selectedNavItem === 'cameras' }">КАМЕРЫ</div></li>
           <li><div class="windows" @click="selectNavItem('statistics')" :class="{ active: selectedNavItem === 'statistics' }">СТАТИСТИКА</div></li>
+          <!-- <li><div class="windows" @click="selectNavItem('map')" :class="{ active: selectedNavItem === 'map'}">КАРТА</div></li> -->
         </ul>
       </nav>
         

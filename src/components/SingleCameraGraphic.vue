@@ -50,18 +50,15 @@ export default {
                 }
             });
         },
-        parseLogsAndDraw() {
-            axios.get(this.camera_src, { paramsSerializer: params => qs.stringify(params, { arrayFormat: "repeat" }) })
-                .then((response) => {
-                    this.timestamps = response.data.map(x => moment(x.datestamp).utc().format("lll"));
-                    this.counts = response.data.map(x => x.count)
+        async parseLogsAndDraw() {
+            let response = await axios.get(this.camera_src,
+                                           { paramsSerializer: params => qs.stringify(params, { arrayFormat: "repeat" }) }
+            );
+            this.timestamps = response.data.map(x => moment(x.datestamp).utc().format("lll"));
+            this.counts = response.data.map(x => x.count);
 
-                    this.draw(this.timestamps, this.counts);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-            }
+            this.draw(this.timestamps, this.counts);
+        }
     }
 }
 

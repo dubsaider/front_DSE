@@ -48,14 +48,7 @@ export default {
         changeCameraVisibility(){
             
         },
-        getStream(cameraId, streamId){
-            axios.get(streamId)
-            .then((response) => {
-                console.log("Camera # " + cameraId + " response:");
-                console.log(response.data);
-            });
-        },
-        fetchAndPlay(cameraId, streamId) {
+        async fetchAndPlay(cameraId, streamId) {
             let video = document.getElementById(cameraId);
 
             if (Hls.isSupported()) {

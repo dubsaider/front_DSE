@@ -1,14 +1,23 @@
 <template>
     <div class="statistic-grid">
-      <single-camera-graphic
+      <modal-window v-on:close="closeWindow" v-if="modalWindowIsShowed">
+        <single-camera-graphic
+          v-bind:id=this.lastAttachedCamera.camera_id
+          v-bind:camera_id=this.lastAttachedCamera.camera_id
+          v-bind:camera_src=this.lastAttachedCamera.camera_src
+          v-bind:location_name=this.lastAttachedCamera.location_name
+        />
+      </modal-window>
+      <!-- <single-camera-graphic
           v-for="camera in cameras"
             v-bind:id="camera.camera_id"
             v-bind:camera_id="camera.camera_id"
             v-bind:camera_src="camera.camera_src"
             v-bind:location_name="camera.location_name"
-      />
+      /> -->
       <single-camera-statistic
         v-for="camera in cameras"
+          v-on:show="changeModalWindowVisibility"
           v-bind:id="camera.camera_id"
           v-bind:camera_id="camera.camera_id"
           v-bind:camera_name="camera.camera_name"
@@ -27,15 +36,28 @@
 import SingleCameraGraphic from "./SingleCameraGraphic.vue";
 import SingleCameraStatistic from "./SingleCameraStatistic.vue";
 import DialogWindow from "./DialogWindow.vue";
+import ModalWindow from "./Utils/ModalWindow.vue";
 
 export default {
   name: "CameraGridContent",
   components: {
-    SingleCameraStatistic, SingleCameraGraphic, DialogWindow
+    SingleCameraStatistic, SingleCameraGraphic, DialogWindow, ModalWindow
+  },
+  methods:{
+    changeModalWindowVisibility(card_id) {
+      this.lastAttachedCamera = this.cameras.find(camera => {return camera.camera_id === card_id}) 
+      this.modalWindowIsShowed = true;
+      //alert(this.lastAttachedCamera.camera_id);
+    },
+    closeWindow(){
+      this.modalWindowIsShowed = false;
+    }
   },
   data() {
     return {
-      cameras : [
+      modalWindowIsShowed: false,
+      lastAttachedCamera: undefined,
+      cameras: [
         {camera_id: "1", camera_name: "Корпус A", camera_src: "http://10.61.36.15:8000/api/data/?location=Корпус A&start_datestamp=2023-08-23T00:00:00", location_name: "Корпус A"},
         {camera_id: "2", camera_name: "Корпус B", camera_src: "http://10.61.36.15:8000/api/data/?location=Корпус B&start_datestamp=2023-08-23T00:00:00", location_name: "Корпус B"},
         {camera_id: "3", camera_name: "Корпус C", camera_src: "http://10.61.36.15:8000/api/data/?location=Корпус C&start_datestamp=2023-08-23T00:00:00", location_name: "Корпус C"},
@@ -76,7 +98,6 @@ export default {
 
 <style>
 .statistic-grid{
-    /* margin: 0 auto; */
     min-height: 100vh;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;

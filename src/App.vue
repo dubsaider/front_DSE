@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navigation-bar @selected-nav-item="(res) => selectedNavItem = res" />
-    <div v-if="selectedNavItem === 'cameras'">
+    <div v-show="(selectedNavItem === 'cameras')">
       <div class="main-wrapper">
 
         <left-menu />
@@ -14,26 +14,31 @@
       </div>
       <!--<camera-pop-up-menu/> -->
     </div>
-    <div v-if="selectedNavItem === 'statistics'">
+    <div v-show="(selectedNavItem === 'statistics')">
       <div class="main-wrapper">
         <div class="stats-width main-content" >
           <statistic-grid />
         </div>
-
       </div>
     </div>
-
+    <!-- <div v-show="(selectedNavItem === 'map')">
+      <div class="main-wrapper">
+        <div class="main-content" >
+          <yandex-map />
+        </div>
+      </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import CameraListManage from "@/components/CameraListManage.vue"
+import CameraListManage from "@/components/CameraListManage.vue";
 import LeftMenu from "@/components/LeftMenu.vue";
-import CameraGrid from "@/components/CameraGrid.vue"
-import StatisticGrid from "@/components/StatisticGrid.vue"
+import CameraGrid from "@/components/CameraGrid.vue";
+import StatisticGrid from "@/components/StatisticGrid.vue";
 import CameraPopUpMenu from "@/components/CameraPopUpMenu.vue";
 import NavigationBar from "./components/NavigationBar.vue";
-
+import YandexMap from "./components/YandexMap.vue";
 
 export default {
   data() {
@@ -47,7 +52,8 @@ export default {
     CameraGrid,
     StatisticGrid,
     CameraPopUpMenu,
-    NavigationBar
+    NavigationBar,
+    YandexMap,
   }
 }
 </script>
@@ -89,5 +95,10 @@ body {
   height: 100%;
   margin: 0;
   font-family: 'Jura', sans-serif;
+}
+
+#app{
+  min-width: 1920px;
+  min-height: 1080px;
 }
 </style>

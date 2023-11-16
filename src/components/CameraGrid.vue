@@ -9,6 +9,7 @@
 <!-- <video id="vid1" class="video-js" data-setup='{}'>
         <source src="http://10.61.36.15:8000/api/camera/35/stream.m3u8" type="application/x-mpegurl"/>
       </video> -->
+    <YandexMap/>
     <single-camera
         v-for="camera in cameras"
           v-bind:id="camera.id"
@@ -24,6 +25,7 @@ import Camera from "./Camera.vue";
 import SingleCamera from "./SingleCamera.vue";
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
+import YandexMap from "./YandexMap.vue";
 
 const API_CAMERAS_PATH = "http://10.61.36.15:8000/api/cameras/"
 const CAMERA_SRC_PREFIX = "http://10.61.36.15:8000/api/camera/"
@@ -43,39 +45,36 @@ export default {
   //input_location: 8​​
   //output_location: 8
       cameras: [
-        // old { cameraId: 'video2', cameraSrc: `http://10.63.17.70:8000/api/video/test_480p.m3u8` },
-        // { cameraId: 'test', cameraSrc: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8'},
-        { id: 'video2', video_src: `http://10.61.36.15:8000/api/camera/2/stream.m3u8` },
-        { id: 'video3', video_src: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
-        { id: 'video4', video_src: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
-        { id: 'video5', video_src: `http://10.61.36.15:8000/api/camera/5/stream.m3u8` },
-        // { cameraId: 'video36', cameraSrc: `http://10.61.36.15:8000/api/camera/36/stream.m3u8` },
-        // { cameraId: 'video37', cameraSrc: `http://10.61.36.15:8000/api/camera/37/stream.m3u8` },
-        // { cameraId: 'video38', cameraSrc: `http://10.61.36.15:8000/api/camera/38/stream.m3u8` },
-        // { cameraId: 'video39', cameraSrc: `http://10.61.36.15:8000/api/camera/39/stream.m3u8` },
-        //{ cameraId: 'video40', cameraSrc: `http://10.61.36.15:8000/api/camera/40/stream.m3u8` },
-        // { cameraId: 'video3', cameraSrc: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
-        // old { cameraId: 'video5', cameraSrc: `http://10.63.17.70:8000/api/camera/4/stream.m3u8` },
-        // // { cameraId: 'video4', cameraSrc: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
-        //  { cameraId: 'video35', cameraSrc: `http://10.61.36.15:8000/api/camera/35/stream.m3u8` },
-        //  { cameraId: 'video32', cameraSrc: `http://10.61.36.15:8000/api/camera/32/stream.m3u8` },
+        // // old { cameraId: 'video2', cameraSrc: `http://10.63.17.70:8000/api/video/test_480p.m3u8` },
+        // // { cameraId: 'test', cameraSrc: 'https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.mp4/.m3u8'},
+        // { id: 'video2', video_src: `http://10.61.36.15:8000/api/camera/2/stream.m3u8` },
+        // { id: 'video3', video_src: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
+        // { id: 'video4', video_src: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
+        // { id: 'video5', video_src: `http://10.61.36.15:8000/api/camera/5/stream.m3u8` },
+        // // { cameraId: 'video36', cameraSrc: `http://10.61.36.15:8000/api/camera/36/stream.m3u8` },
+        // // { cameraId: 'video37', cameraSrc: `http://10.61.36.15:8000/api/camera/37/stream.m3u8` },
+        // // { cameraId: 'video38', cameraSrc: `http://10.61.36.15:8000/api/camera/38/stream.m3u8` },
+        // // { cameraId: 'video39', cameraSrc: `http://10.61.36.15:8000/api/camera/39/stream.m3u8` },
+        // //{ cameraId: 'video40', cameraSrc: `http://10.61.36.15:8000/api/camera/40/stream.m3u8` },
+        // // { cameraId: 'video3', cameraSrc: `http://10.61.36.15:8000/api/camera/3/stream.m3u8` },
+        // // old { cameraId: 'video5', cameraSrc: `http://10.63.17.70:8000/api/camera/4/stream.m3u8` },
+        // // // { cameraId: 'video4', cameraSrc: `http://10.61.36.15:8000/api/camera/4/stream.m3u8` },
+        // //  { cameraId: 'video35', cameraSrc: `http://10.61.36.15:8000/api/camera/35/stream.m3u8` },
+        // //  { cameraId: 'video32', cameraSrc: `http://10.61.36.15:8000/api/camera/32/stream.m3u8` },
         
       ]
     }
   },
   mounted() {
-    //this.getCameras();
+    this.getCameras();
   },
   methods: {
-    getCameras() {
-        axios.get(API_CAMERAS_PATH).then(
-          (response) => {
-              console.log("camera-grid request:")
-              console.log(response);
-              this.cameras = response.data;
-              this.cameras.map((x) => x.video_src = CAMERA_SRC_PREFIX + x.id + CAMERA_SRC_SUFFIX)
-          }
-        )
+    async getCameras() {
+        let response = await axios.get(API_CAMERAS_PATH);
+        console.log("camera-grid request:")
+        //console.log(response);
+        this.cameras = response.data;
+        this.cameras.map((x) => x.video_src = CAMERA_SRC_PREFIX + x.id + CAMERA_SRC_SUFFIX);
       }
     }
 }
